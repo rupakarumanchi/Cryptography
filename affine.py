@@ -24,4 +24,4 @@ def alphabet(cipher):
 
 
 if __name__ == '__main__':
-    alphabet('falszztysyjzyjkywjrztyjztyynaryjkyswarztyegyyj')
+    alphabet('egyyj')
