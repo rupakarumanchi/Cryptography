@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset = "UTF-8">
+    <title> A Form for GCD </title>
+  </head>
+
+  <header>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </header>
+
+  <body>
+	<h1> Enter two integers for which you want to calculate GCD</h1>
+
+	<div class="wrapper">
+			<p>
+			Please enter first Integer: 
+			A = <input type="number" step="1" id="input_A">
+		</p>
+		<p>
+			Please enter second Integer: 
+			B = <input type="number" step="1" id="input_B">
+		</p>
+		<p>
+			<button class="get_result"> Go! </button>
+			<div class='result'></div>
+		</p>
+	</div>
+</body>
+
+ <script>
+    $(document).ready(function(){
+      $('.wrapper').on('click', '.get_result', function(){
+         var val1 = $("#input_A").val();
+         var val2 = $("#input_B").val();
+         $.ajax({
+          url: "/calculate_result",
+          type: "get",
+          data: {val1: val1, val2:val2},
+          success: function(response) {
+            $(".result").html('<p>'+response.result.toString()+'</p>');
+          },
+         });
+      });
+    });
+ </script>
+</html>
